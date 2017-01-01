@@ -1,0 +1,55 @@
+<div class="container">
+  <table class="table">
+    <h2>Solving: {{jobProgress.problemInput.cnfName}}</h2>
+    <tbody>
+      <tr>
+        <td>nVars:</td>
+        <td>{{jobProgress.problemInput.vars}}</td>
+      </tr>
+      <tr>
+        <td>nClauses:</td>
+        <td>{{jobProgress.problemInput.clauses}}</td>
+      </tr>
+      <tr>
+        <td>nAssignments:</td>
+        <td>{{jobProgress.problemInput.originalAssignments}}</td>
+      </tr>
+      <tr>
+        <td>sAssignments:</td>
+        <td>{{jobProgress.problemInput.solvedAssignments}}</td>
+      </tr>
+      <tr>
+        <td>Start Date:</td>
+        <td>{{jobProgress.problemInput.startTime | date:'medium'}}</td>
+      </tr>
+      <tr>
+        <td>Running Time:</td>
+        <td>{{rtime | async}} s</td>
+      </tr>
+      <tr>
+        <td>Answer:</td>
+        <td>{{jobProgress.problemInput.answer}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <h2>Worker Stats:</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Worker</th>
+      <th>Solved Assignments</th>
+      <th>Stats</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let workerProgres of jobProgress.workerProgresses">
+        <td>{{workerProgres.workerName}}</td>
+        <td>{{workerProgres.solvedAssignmentsUpdate}}</td>
+        <td>{{workerProgres.statUpdate}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

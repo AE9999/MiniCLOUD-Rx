@@ -1,0 +1,27 @@
+#                                                          #
+# Start of the Petshop workers                             #
+#                                                          #
+apiVersion: apps/v1alpha1
+kind: PetSet
+metadata:
+  name: web
+spec:
+  serviceName: "minicloud-rx-worker"
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: minicloud-rx-worker
+      annotations:
+        pod.alpha.kubernetes.io/initialized: "true"
+    spec:
+      terminationGracePeriodSeconds: 0
+      containers:
+      - name: minicloud-rx-worker
+        image: gcr.io/minicloud-rx/minicloud-rx-worker
+        ports:
+        - containerPort: 8080
+          name: web
+#                                                          #
+# End of the Petshop workers                               #
+#                                                          #

@@ -1,0 +1,23 @@
+#                                                          #
+# Start of a minicloud-master service                      #
+#                                                          #
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    run: minicloud-rx-master
+  name: minicloud-rx-master
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: minicloud-rx-master
+  type: NodePort
+status:
+  loadBalancer: {}
+#                                                          #
+# End of a minicloud-master service                        #
+#                                                          #
